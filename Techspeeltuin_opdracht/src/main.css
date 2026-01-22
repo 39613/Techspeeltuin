@@ -1,0 +1,83 @@
+/*     #     */
+
+*, *::before, *::after{
+    /* alles reseten*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    min-height: 100vh;
+    font-size: 1.6rem;
+}
+
+html{
+    /* de html Font size op 10 pixels zetten. 1rem => 10px */
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    background-color: #282833;
+    font-family: sans-serif;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    padding-top: 7rem;
+    color: white;
+}
+
+main{
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cam_div{
+    height: 480px;
+    width: 640px;
+}
+
+.info_section{
+    overflow:hidden;
+    color: white;
+    font-family: monospace;
+    padding-top: 1.6rem;
+    padding-left: 1.8rem;
+    margin-top: 4rem;
+    width: 110rem;
+    height: 30rem;
+    background-color: #17171b;
+    border: solid 1px white;
+    border-radius: 3rem;
+}
+
+.camera-container {
+  position: relative;
+  width: 640px; /* match your video size */
+  height: 480px;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border: 3px solid red;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* important */
+}
+
+.cam_div {
+  transform: scaleX(-1);
+}
