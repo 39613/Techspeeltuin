@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import alsaaudio
+import json
 
 TRIG=23
 ECHO=24
@@ -39,10 +40,14 @@ while True:
         print(f"{Style.RED}Distance = 100.00+ cm")
     else :
         print(f"{Style.BLUE}Distance =" , distance, "cm")
+    data = {"distance": distance}
+    with open('sensorData.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
 
     if distance > 0 and distance < 100:
         m.setvolume(round(distance)) # Set volume depanding on the distance
     else :
         m.setvolume(100) # Set volume to 100 if distace is > then 100
     time.sleep(0.1)
+
 

@@ -1,8 +1,9 @@
 import numpy as np
 import cv2
-import vlc
 import time
 import os, random
+import vlc
+
 
 
 
@@ -31,10 +32,7 @@ while True:
 
     # pick pixel value
     pixel_center = hsv_frame[cx, cy]
-    while True:
-        hue_value = pixel_center[0]
-        time.sleep(3)
-        break
+    hue_value = pixel_center[0]
 
 
 
@@ -50,8 +48,20 @@ while True:
 
     # show image 
     frame = cv2.flip(frame, 1)
-    cv2.imshow("Camera", frame)
+    time.sleep(0.25)
+    Camera_path = "/home/gebruiker/Desktop/M6BO_39613/Cam & sensor code/img/camera.jpg"
+    cv2.imwrite(Camera_path, frame)
+    # cv2.imshow("Camera", frame)
     key = cv2.waitKey(1)
+# name = camera.png
+# opslaan als:
+# img/camera.png
+
+
+# js
+# img = gitDocumentbyid('camera')
+# img.src = '/img/camera.png?time=' + timestamp();
+
 
     #================================================================= 
     def RandomSong(genre):
@@ -66,41 +76,41 @@ while True:
 
     #================================================================= 
 
-    # Rood detectie -> Volgende liedje
-    # if 110 < hue_value < 130:
-    #     if current_genre != "Indie":
-    #         player.stop()
-    #         media_path, song_name = RandomSong("Indie")
-    #         player.set_media(vlc.Media(media_path))
-    #         player.play()
+    # Geel detectie -> Volgende liedje
+    if 24 < hue_value < 40:
+        if current_genre != "Indie":
+            player.stop()
+            media_path, song_name = RandomSong("Indie")
+            player.set_media(vlc.Media(media_path))
+            player.play()
 
-    #         current_genre = "Indie"
-    #         print("Color Red")
-    #         print("Now playing:", song_name)
+            current_genre = "Indie"
+            print("Color Yellow")
+            print("Now playing:", song_name)
 
-    # # Oranje detectie -> Alternative Rock
-    # if 10 < hue_value < 20:
-    #     if current_genre != "Alternative Rock":
-    #         player.stop()
-    #         media_path, song_name = RandomSong("Alternative_Rock")
-    #         player.set_media(vlc.Media(media_path))
-    #         player.play()
+    # Groen detectie -> Alternative Rock
+    if 74 < hue_value < 85:
+        if current_genre != "Alternative Rock":
+            player.stop()
+            media_path, song_name = RandomSong("Alternative_Rock")
+            player.set_media(vlc.Media(media_path))
+            player.play()
 
-    #         current_genre = "Alternative Rock"
-    #         print("Color Orange")
-    #         print("Now playing:", song_name)
+            current_genre = "Alternative Rock"
+            print("Color Green")
+            print("Now playing:", song_name)
     
-    # # Geel detectie -> Jazz
-    # if 150 < hue_value < 170:
-    #     if current_genre != "Jazz":
-    #         player.stop()
-    #         media_path, song_name = RandomSong("Jazz")
-    #         player.set_media(vlc.Media(media_path))
-    #         player.play()
+    # Blauw detectie -> Jazz
+    if 99 < hue_value < 115:
+        if current_genre != "Jazz":
+            player.stop()
+            media_path, song_name = RandomSong("Jazz")
+            player.set_media(vlc.Media(media_path))
+            player.play()
 
-    #         current_genre = "Jazz"
-    #         print("Color Yellow")
-    #         print("Now playing:", song_name)
+            current_genre = "Jazz"
+            print("Color Blue")
+            print("Now playing:", song_name)
     
     # # Groen detectie -> Muziek stopt
     # if 110 < hue_value < 130:
@@ -111,29 +121,29 @@ while True:
     #         print("Color Green")
     #         print("Music has been stopped")
 
-    # # Blauw detectie -> Rnb
-    # if 110 < hue_value < 130:
-    #     if current_genre != "RnB":
-    #         player.stop()
-    #         media_path, song_name = RandomSong("RnB")
-    #         player.set_media(vlc.Media(media_path))
-    #         player.play()
+    # Paars detectie -> Rnb
+    if 144 < hue_value < 155:
+        if current_genre != "RnB":
+            player.stop()
+            media_path, song_name = RandomSong("RnB")
+            player.set_media(vlc.Media(media_path))
+            player.play()
 
-    #         current_genre = "RnB"
-    #         print("Color Blue")
-    #         print("Now playing:", song_name)
+            current_genre = "RnB"
+            print("Color Purple")
+            print("Now playing:", song_name)
 
-    # # Paars(HUE value kloppen niet) detectie -> HipHop
-    # if 170 < hue_value < 180 or hue_value < 7 :
-    #     if current_genre != "HipHop":
-    #         player.stop()
-    #         media_path, song_name = RandomSong("HipHop")
-    #         player.set_media(vlc.Media(media_path))
-    #         player.play()
+    # Rood detectie -> HipHop
+    if 159 < hue_value < 179 or hue_value < 7 :
+        if current_genre != "HipHop":
+            player.stop()
+            media_path, song_name = RandomSong("HipHop")
+            player.set_media(vlc.Media(media_path))
+            player.play()
 
-    #         current_genre = "HipHop"
-    #         print("Color Purple")
-    #         print("Now playing:", song_name)
+            current_genre = "HipHop"
+            print("Color Red")
+            print("Now playing:", song_name)
 
 
 
